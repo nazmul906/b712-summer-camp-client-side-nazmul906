@@ -3,7 +3,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../MainLayout/Main";
 import AllClass from "../pages/AllClass/AllClass";
 import Home from "../pages/Home/Home/Home";
-
+import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";
 const Route = createBrowserRouter([
   {
     path: "/",
@@ -16,6 +17,14 @@ const Route = createBrowserRouter([
       {
         path: "class",
         element: <AllClass></AllClass>,
+      },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "register",
+        element: <Register></Register>,
       },
     ],
   },
