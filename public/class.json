@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "languageName": "French",
+    "instructorName": "Sophie Dubois",
+    "availableSeats": 12,
+    "price": 99.99,
+    "image": "french.jpg"
+  },
+  {
+    "id": 2,
+    "languageName": "Spanish",
+    "instructorName": "Carlos Ramirez",
+    "availableSeats": 8,
+    "price": 89.99,
+    "image": "spanish.jpg"
+  },
+  {
+    "id": 3,
+    "languageName": "German",
+    "instructorName": "Hans Müller",
+    "availableSeats": 15,
+    "price": 109.99,
+    "image": "german.jpg"
+  },
+  {
+    "id": 4,
+    "languageName": "Italian",
+    "instructorName": "Maria Rossi",
+    "availableSeats": 5,
+    "price": 79.99,
+    "image": "italian.jpg"
+  },
+  {
+    "id": 5,
+    "languageName": "Japanese",
+    "instructorName": "Yuki Tanaka",
+    "availableSeats": 10,
+    "price": 94.99,
+    "image": "japanese.jpg"
+  },
+  {
+    "id": 6,
+    "languageName": "Mandarin",
+    "instructorName": "Li Wei",
+    "availableSeats": 20,
+    "price": 129.99,
+    "image": "mandarin.jpg"
+  }
+]
