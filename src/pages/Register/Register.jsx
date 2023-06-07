@@ -1,21 +1,48 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
+  const { register, updateUserData } = useContext(AuthContext);
   const showPassword = true;
-  const handleLogin = (event) => {
+  const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    const confrimpassword = form.confrimpassword.value;
-    console.log(email, password);
+    // const confrimpassword = form.confrimpassword.value;
+    const photoUrl = form.photo.value;
+    console.log(name, email, password);
+    register(email, password)
+      .then((result) => {
+        const registerdUser = result.user;
+        updateUserData({ displayName: name, photoURL: photoUrl })
+          .then((result) => {
+            // const updatedUser = result.user;
+            // console.log("updated", updatedUser);
+          })
+          .catch((error) => console.log(error));
+        console.log("registered", registerdUser);
+      })
+      .then((error) => console.log(error.message));
   };
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="max-w-md w-full mx-auto">
         <div className="bg-white p-8 rounded-lg shadow-lg">
           <h2 className="text-2xl font-bold mb-6">Register</h2>
-          <form onSubmit={handleLogin}>
+          <form onSubmit={handleRegister}>
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2">
+                Name
+              </label>
+              <input
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+                name="name"
+                type="text"
+                placeholder="Enter your name"
+              />
+            </div>
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2">
                 Email
@@ -55,7 +82,7 @@ const Register = () => {
               </label>
               <input
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
-                name="photourl"
+                name="photo"
                 type="text"
                 placeholder=""
               />
