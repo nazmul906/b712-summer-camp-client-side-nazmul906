@@ -5,7 +5,7 @@ const AllClass = () => {
   const [allclass, setaAllclass] = useState([]);
 
   useEffect(() => {
-    fetch("class.json")
+    fetch("http://localhost:5000/allclass")
       .then((res) => res.json())
       .then((data) => setaAllclass(data));
   }, []);
@@ -14,7 +14,7 @@ const AllClass = () => {
     <div>
       <h4>Avaialble classes</h4>
       {allclass.map((item) => (
-        <AllClassCard key={item.id} allclass={allclass}></AllClassCard>
+        <AllClassCard key={item.id} allclass={item}></AllClassCard>
       ))}
     </div>
   );

@@ -70,7 +70,7 @@ const Navbar = () => {
           </li>
 
           <li>
-            <Link>DashBoard</Link>
+            <Link to="/dashboard">DashBoard</Link>
           </li>
         </ul>
       </div>

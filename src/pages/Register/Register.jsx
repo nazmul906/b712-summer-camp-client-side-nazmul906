@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-
+// todo: login and register page should be react form
+// and password validate
 const Register = () => {
   const { register, updateUserData } = useContext(AuthContext);
   const showPassword = true;
@@ -20,6 +21,20 @@ const Register = () => {
           .then((result) => {
             // const updatedUser = result.user;
             // console.log("updated", updatedUser);
+
+            const registeredUser = { name: name, email: email };
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              headers: { "content-type": "application/json" },
+              body: JSON.stringify(registeredUser),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+                if (data.insertedId) {
+                  alert("user is registered");
+                }
+              });
           })
           .catch((error) => console.log(error));
         console.log("registered", registerdUser);
