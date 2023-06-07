@@ -26,7 +26,19 @@ const AllUser = () => {
       });
   };
 
-  const handleInstructor = () => {};
+  const handleInstructor = (item) => {
+    fetch(`http://localhost:5000/users/instructor/${item._id}`, {
+      // using patch because we just partially updating the db
+      method: "PATCH",
+    })
+      .then()
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          alert("instructor role is updated");
+        }
+      });
+  };
   return (
     <div>
       <h5>This is all user</h5>
@@ -53,7 +65,7 @@ const AllUser = () => {
                 <td></td>
                 <td>
                   {item.role === "admin" ? (
-                    "Admined"
+                    "admin"
                   ) : (
                     <button
                       onClick={() => handleAdmin(item)}
@@ -64,7 +76,16 @@ const AllUser = () => {
                   )}
                 </td>
                 <td>
-                  {<button className="btn btn-primary">Make instructor</button>}
+                  {item.role === "instructor" ? (
+                    "instructor"
+                  ) : (
+                    <button
+                      onClick={() => handleInstructor(item)}
+                      className="btn btn-primary"
+                    >
+                      Make instructor
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}
