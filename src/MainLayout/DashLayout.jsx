@@ -3,6 +3,11 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { FaHome, FaWallet } from "react-icons/fa";
 
 const DashLayout = () => {
+  // todo: make this dashboard conditional render frm db
+  const isAdmin = true;
+  const isModertor = false;
+  const isStudent = false;
+
   return (
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar */}
@@ -12,33 +17,55 @@ const DashLayout = () => {
         </div>
         <nav className="py-4">
           <ul>
-            <li>
-              <NavLink
-                to="/"
-                activeclassname="bg-primary bg-opacity-20"
-                className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
-              >
-                <FaHome className="inline-block mr-2" /> Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/dashboard/alluser"
-                activeclassname="bg-primary bg-opacity-20"
-                className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
-              >
-                <FaWallet className="inline-block mr-2" /> All User
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/class"
-                activeclassname="bg-primary bg-opacity-20"
-                className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
-              >
-                Classes
-              </NavLink>
-            </li>
+            {/* conditionally render either admin or student or moderator */}
+            {isAdmin && (
+              <>
+                {" "}
+                <li>
+                  <NavLink
+                    to="/"
+                    activeclassname="bg-primary bg-opacity-20"
+                    className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
+                  >
+                    <FaHome className="inline-block mr-2" /> Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/alluser"
+                    activeclassname="bg-primary bg-opacity-20"
+                    className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
+                  >
+                    <FaWallet className="inline-block mr-2" /> All User
+                  </NavLink>
+                </li>
+              </>
+            )}
+            {isModertor && (
+              <>
+                <li>
+                  <NavLink
+                    to="/addclass"
+                    activeclassname="bg-primary bg-opacity-20"
+                    className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
+                  >
+                    Add a class
+                  </NavLink>
+                </li>
+              </>
+            )}
+
+            {isStudent && (
+              <li>
+                <NavLink
+                  to="/class"
+                  activeclassname="bg-primary bg-opacity-20"
+                  className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
+                >
+                  Classes
+                </NavLink>
+              </li>
+            )}
             {/* make divider */}
             <div className="divider"></div>
             <li>
