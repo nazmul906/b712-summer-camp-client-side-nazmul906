@@ -15,8 +15,7 @@ const DashLayout = () => {
             <li>
               <NavLink
                 to="/"
-                exact
-                activeClassName="bg-primary bg-opacity-20"
+                activeclassname="bg-primary bg-opacity-20"
                 className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
               >
                 <FaHome className="inline-block mr-2" /> Home
@@ -25,7 +24,7 @@ const DashLayout = () => {
             <li>
               <NavLink
                 to="/dashboard/alluser"
-                activeClassName="bg-primary bg-opacity-20"
+                activeclassname="bg-primary bg-opacity-20"
                 className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
               >
                 <FaWallet className="inline-block mr-2" /> All User
@@ -34,7 +33,7 @@ const DashLayout = () => {
             <li>
               <NavLink
                 to="/class"
-                activeClassName="bg-primary bg-opacity-20"
+                activeclassname="bg-primary bg-opacity-20"
                 className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
               >
                 Classes
@@ -45,8 +44,7 @@ const DashLayout = () => {
             <li>
               <NavLink
                 to="/"
-                exact
-                activeClassName="bg-primary bg-opacity-20"
+                activeclassname="bg-primary bg-opacity-20"
                 className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
               >
                 Home
@@ -85,7 +83,7 @@ const DashLayout = () => {
               <li>
                 <NavLink
                   to="/dashboard/alluser"
-                  activeClassName="bg-primary bg-opacity-20"
+                  activeclassname="bg-primary bg-opacity-20"
                   className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
                 >
                   <FaWallet className="inline-block mr-2" /> All User
