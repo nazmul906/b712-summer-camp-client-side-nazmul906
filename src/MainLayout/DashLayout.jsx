@@ -7,7 +7,7 @@ const DashLayout = () => {
   // todo: make this dashboard conditional render frm db
   // const [isAdmin] = useAdmin();
 
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
   const isModertor = false;
   const isStudent = false;
 

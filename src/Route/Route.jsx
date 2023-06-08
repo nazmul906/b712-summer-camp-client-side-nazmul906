@@ -7,7 +7,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import DashLayout from "../MainLayout/DashLayout";
 import AllUser from "../pages/DashBoard/Admin/AllUser";
-import Dashboard from "../MainLayout/Dashboard";
+
 const Route = createBrowserRouter([
   {
     path: "/",

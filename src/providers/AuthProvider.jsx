@@ -43,11 +43,13 @@ const AuthProvider = ({ children }) => {
             // console.log("axios", data.data.jwtToken);
             const accessToken = data.data.jwtToken;
             localStorage.setItem("AccessToken", accessToken);
+            setLoading(false);
           });
       } else {
         localStorage.removeItem("AccessToken");
+        setLoading(false);
       }
-      setLoading(false);
+      // setLoading(false);
     });
     return () => {
       return unsubscribe();
