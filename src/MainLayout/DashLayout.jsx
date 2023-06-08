@@ -2,13 +2,15 @@ import React from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { FaHome, FaWallet } from "react-icons/fa";
 import useAdmin from "../hooks/useAdmin";
+import useInstructor from "../hooks/useInstructor";
 
 const DashLayout = () => {
   // todo: make this dashboard conditional render frm db
-  // const [isAdmin] = useAdmin();
+  // const isAdmin = false;
 
   const [isAdmin] = useAdmin();
-  const isModertor = false;
+
+  const [isInstructor] = useInstructor();
   const isStudent = false;
 
   return (
@@ -44,11 +46,11 @@ const DashLayout = () => {
                 </li>
               </>
             )}
-            {isModertor && (
+            {isInstructor && (
               <>
                 <li>
                   <NavLink
-                    to="/addclass"
+                    to="/dashboard/addclass"
                     activeclassname="bg-primary bg-opacity-20"
                     className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
                   >
