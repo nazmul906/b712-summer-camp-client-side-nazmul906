@@ -10,6 +10,7 @@ import {
   signOut,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import axios from "axios";
 const auth = getAuth(app);
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
@@ -31,9 +32,22 @@ const AuthProvider = ({ children }) => {
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log("current user", currentUser);
-      setLoading(false);
       setUser(currentUser);
+      console.log("current user", currentUser);
+
+      // this req will asign the logged in user a jwt token
+      if (currentUser) {
+        axios
+          .post("http://localhost:5000/jwt", { email: currentUser.email })
+          .then((data) => {
+            // console.log("axios", data.data.jwtToken);
+            const accessToken = data.data.jwtToken;
+            localStorage.setItem("AccessToken", accessToken);
+          });
+      } else {
+        localStorage.removeItem("AccessToken");
+      }
+      setLoading(false);
     });
     return () => {
       return unsubscribe();
