@@ -5,9 +5,9 @@ import useAdmin from "../hooks/useAdmin";
 
 const DashLayout = () => {
   // todo: make this dashboard conditional render frm db
-  const [isAdmin] = useAdmin();
+  // const [isAdmin] = useAdmin();
 
-  // const isAdmin = true;
+  const isAdmin = true;
   const isModertor = false;
   const isStudent = false;
 
