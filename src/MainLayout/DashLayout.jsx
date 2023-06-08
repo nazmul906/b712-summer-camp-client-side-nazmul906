@@ -4,6 +4,7 @@ import { FaHome, FaWallet } from "react-icons/fa";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
 import { useState, useEffect } from "react";
+import "./dashboard.css";
 const DashLayout = () => {
   // todo: make this dashboard conditional render frm db
   // const isAdmin = false;
@@ -21,7 +22,7 @@ const DashLayout = () => {
   }, [isAdmin, isInstructor]);
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen overflow-hidden  dash-layout">
       {/* Sidebar */}
       <div className="flex-shrink-0 w-64 bg-base-100">
         <div className="flex items-center justify-center h-14 bg-base-200">
@@ -111,28 +112,6 @@ const DashLayout = () => {
           <Outlet />
         </div>
       </div>
-
-      {/* Right Drawer */}
-      {/* <input id="drawer-toggle" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-side right-0">
-        <label htmlFor="drawer-toggle" className="drawer-overlay"></label>
-        <div className="drawer-content bg-base-200">
-          <div className="py-4">
-            <ul>
-              <li>
-                <NavLink
-                  to="/dashboard/alluser"
-                  activeclassname="bg-primary bg-opacity-20"
-                  className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
-                >
-                  <FaWallet className="inline-block mr-2" /> All User
-                </NavLink>
-              </li>
-              Add additional right drawer options here
-            </ul>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

@@ -1,0 +1,25 @@
+/* DashLayout.css */
+
+.dash-layout {
+  /* Add a scrollbar to the content area */
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #a5a5a5 #f4f4f4;
+}
+
+.dash-layout::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dash-layout::-webkit-scrollbar-track {
+  background: #f4f4f4;
+}
+
+.dash-layout::-webkit-scrollbar-thumb {
+  background-color: #a5a5a5;
+  border-radius: 3px;
+}
+
+.dash-layout::-webkit-scrollbar-thumb:hover {
+  background-color: #888;
+}
