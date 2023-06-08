@@ -65,6 +65,15 @@ const DashLayout = () => {
                     Add a class
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/myclass"
+                    activeclassname="bg-primary bg-opacity-20"
+                    className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
+                  >
+                    Myclass
+                  </NavLink>
+                </li>
               </>
             )}
 
