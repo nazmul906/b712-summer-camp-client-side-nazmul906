@@ -3,7 +3,7 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { FaHome, FaWallet } from "react-icons/fa";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
-
+import { useState, useEffect } from "react";
 const DashLayout = () => {
   // todo: make this dashboard conditional render frm db
   // const isAdmin = false;
@@ -11,7 +11,14 @@ const DashLayout = () => {
   const [isAdmin] = useAdmin();
 
   const [isInstructor] = useInstructor();
-  const isStudent = false;
+  const [isStudent, setIsStudent] = useState(false);
+
+  //  to avoid rerender using useEffect with dependency
+  useEffect(() => {
+    if (isAdmin === false && isInstructor == false) {
+      setIsStudent(true);
+    }
+  }, [isAdmin, isInstructor]);
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -67,7 +74,7 @@ const DashLayout = () => {
                   activeclassname="bg-primary bg-opacity-20"
                   className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
                 >
-                  Classes
+                  My Classes
                 </NavLink>
               </li>
             )}
