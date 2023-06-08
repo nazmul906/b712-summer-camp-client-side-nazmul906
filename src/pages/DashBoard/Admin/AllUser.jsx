@@ -1,16 +1,31 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useEffect, useState } from "react";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AllUser = () => {
-  const [user, setUser] = useState([]);
+  // const [user, setUser] = useState([]);
+
+  const [axiosSecure] = useAxiosSecure();
   // todo: fetch user using react query
-  useEffect(() => {
-    fetch("http://localhost:5000/users", {})
-      .then((res) => res.json())
-      .then((data) => {
-        setUser(data);
-      });
-  }, []);
+  // as it is secure for admin verify it with jwt using axiossecurew
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/users", {})
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setUser(data);
+  //     });
+  // }, []);
+
+  const { data: user = [], refetch } = useQuery(["users"], async () => {
+    // with axios interceptor
+    const res = await axiosSecure.get("users/");
+    // manually
+    // const res = await fetch("localhost:5000/users/");
+    // return res.json();
+    // but in axios res.data
+    return res.data;
+  });
 
   const handleAdmin = (item) => {
     // console.log(item);
@@ -21,6 +36,7 @@ const AllUser = () => {
       .then((data) => {
         // console.log(data);
         if (data.modifiedCount) {
+          refetch;
           alert("admin role is updated");
         }
       });
