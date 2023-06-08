@@ -109,6 +109,32 @@ const AddClass = () => {
       price,
       status,
     });
+
+    const classdata = {
+      className: className,
+      classImage: classImage,
+      instructorName: instructorName,
+      instructorEmail: instructorEmail,
+      availableSeats: availableSeats,
+      price: price,
+      status: status,
+    };
+
+    fetch("http://localhost:5000/addclass", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(classdata),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          alert("class added successfully");
+          // reset.form();
+        }
+      });
   };
 
   return (
