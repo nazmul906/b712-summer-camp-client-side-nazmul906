@@ -91,7 +91,7 @@ const DashLayout = () => {
               <>
                 <li>
                   <NavLink
-                    to="/dashboard/class"
+                    to="/dashboard/selectclass"
                     activeclassname="bg-primary bg-opacity-20"
                     className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
                   >

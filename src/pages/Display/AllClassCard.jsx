@@ -21,7 +21,7 @@ const AllClassCard = ({ allclass }) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.modifiedCOunt) {
+        if (data.modifiedCount) {
           alert("modified");
         }
       });
