@@ -6,7 +6,26 @@ const AllClassCard = ({ allclass }) => {
   const { _id, languageName, instructorName, price } = allclass;
   console.log(allclass);
   const { user } = useContext(AuthContext);
-
+  const handleSelectClass = (_id) => {
+    console.log("selected item", _id);
+    // const selected = { user: user.email, selecteditem: item };
+    // update as an array
+    const enrollment = { enrollment: user?.email };
+    // task
+    // update the item.. with new enrollment field and array of email;
+    fetch(`http://localhost:5000/myclass/select/${_id}`, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(enrollment),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCOunt) {
+          alert("modified");
+        }
+      });
+  };
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       {/* <figure>
@@ -23,10 +42,10 @@ Available seats are 0
 Logged in as admin/instructor
 The class card background will be red if the available seats are 0. */}
         <div className="card-actions justify-end">
-          <Link to="/dashboard/selectclass">
+          <Link>
             {" "}
             <button
-              onClick={() => handleSelectClass(item)}
+              onClick={() => handleSelectClass(_id)}
               className="btn btn-primary"
             >
               Select
