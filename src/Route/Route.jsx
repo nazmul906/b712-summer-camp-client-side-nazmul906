@@ -9,6 +9,7 @@ import DashLayout from "../MainLayout/DashLayout";
 import AllUser from "../pages/DashBoard/Admin/AllUser";
 import AddClass from "../pages/DashBoard/Instructor/AddClass";
 import MyClass from "../pages/DashBoard/Instructor/MyClass";
+import ManageClass from "../pages/DashBoard/Admin/ManageClass";
 
 const Route = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const Route = createBrowserRouter([
       {
         path: "alluser",
         element: <AllUser></AllUser>,
+      },
+      {
+        path: "manageclass",
+        element: <ManageClass></ManageClass>,
       },
       {
         path: "addclass",

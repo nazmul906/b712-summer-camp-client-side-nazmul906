@@ -52,6 +52,16 @@ const DashLayout = () => {
                     <FaWallet className="inline-block mr-2" /> All User
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/manageclass"
+                    activeclassname="bg-primary bg-opacity-20"
+                    className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
+                  >
+                    <FaWallet className="inline-block mr-2" />
+                    Manage Class
+                  </NavLink>
+                </li>
               </>
             )}
             {isInstructor && (
