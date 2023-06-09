@@ -10,7 +10,8 @@ import AllUser from "../pages/DashBoard/Admin/AllUser";
 import AddClass from "../pages/DashBoard/Instructor/AddClass";
 import MyClass from "../pages/DashBoard/Instructor/MyClass";
 import ManageClass from "../pages/DashBoard/Admin/ManageClass";
-
+import Payment from "../pages/DashBoard/Student/Payment/Payment";
+import MySelectClass from "../pages/DashBoard/Student/MySelectClass/MySelectClass";
 const Route = createBrowserRouter([
   {
     path: "/",
@@ -47,6 +48,7 @@ const Route = createBrowserRouter([
         path: "manageclass",
         element: <ManageClass></ManageClass>,
       },
+      // instructor
       {
         path: "addclass",
         element: <AddClass></AddClass>,
@@ -54,6 +56,15 @@ const Route = createBrowserRouter([
       {
         path: "myclass",
         element: <MyClass></MyClass>,
+      },
+      // user
+      {
+        path: "selectclass",
+        element: <MySelectClass></MySelectClass>,
+      },
+      {
+        path: "payment",
+        element: <Payment></Payment>,
       },
     ],
   },

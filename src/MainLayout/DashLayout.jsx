@@ -88,15 +88,26 @@ const DashLayout = () => {
             )}
 
             {isStudent && (
-              <li>
-                <NavLink
-                  to="/class"
-                  activeclassname="bg-primary bg-opacity-20"
-                  className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
-                >
-                  My Classes
-                </NavLink>
-              </li>
+              <>
+                <li>
+                  <NavLink
+                    to="/dashboard/class"
+                    activeclassname="bg-primary bg-opacity-20"
+                    className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
+                  >
+                    My Classes
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/payment"
+                    activeclassname="bg-primary bg-opacity-20"
+                    className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
+                  >
+                    Payment
+                  </NavLink>
+                </li>
+              </>
             )}
             {/* make divider */}
             <div className="divider"></div>

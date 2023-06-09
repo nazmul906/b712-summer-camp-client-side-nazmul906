@@ -25,6 +25,8 @@ const ManageClass = () => {
         }
       });
   };
+
+  const handlefeedback = () => {};
   return (
     <div>
       <h3>manage class</h3>
