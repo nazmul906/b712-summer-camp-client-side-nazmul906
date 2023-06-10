@@ -100,11 +100,20 @@ const DashLayout = () => {
                 </li>
                 <li>
                   <NavLink
-                    to="/dashboard/payment"
+                    to="/dashboard/enrolled"
                     activeclassname="bg-primary bg-opacity-20"
                     className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
                   >
-                    Payment
+                    My Enrolled Classa
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/paymenthistory"
+                    activeclassname="bg-primary bg-opacity-20"
+                    className="block py-2 px-4 rounded-md hover:bg-primary hover:bg-opacity-20"
+                  >
+                    Payment History
                   </NavLink>
                 </li>
               </>
