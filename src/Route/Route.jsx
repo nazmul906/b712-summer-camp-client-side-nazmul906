@@ -63,7 +63,7 @@ const Route = createBrowserRouter([
         element: <MySelectClass></MySelectClass>,
       },
       {
-        path: "payment",
+        path: "payment/:id",
         element: <Payment></Payment>,
       },
     ],
