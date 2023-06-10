@@ -41,6 +41,7 @@ const Payment = () => {
     <div>
       <h1 className="uppercase text-center">payment here</h1>
       <Elements stripe={stripePromise}>
+        {/* this item id is needed to map it again from mainclass to find that this item id is being paid. so we can render it again */}
         <CheckoutForm itemId={id} price={price}></CheckoutForm>
       </Elements>
     </div>
