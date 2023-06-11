@@ -1,9 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { AuthContext } from "../../../../providers/AuthProvider";
 
 const MySelectClass = () => {
   const { user } = useContext(AuthContext);
+  const [axiosSecure] = useAxiosSecure();
   //   check this user with the class
   const [myclass, setMyclass] = useState([]);
   //   const [search, setSearch] = useState([]);
@@ -17,6 +19,18 @@ const MySelectClass = () => {
         setMyclass(matched);
       });
   }, [user, myclass]);
+  const handleDeleteClick = (item) => {
+    console.log("delete", item._id);
+    axiosSecure
+      .patch(`/myclass/delete/${item._id}`, { emailToDelete: user?.email })
+      .then((res) => {
+        console.log("deleted res", res.data);
+        if (res.data.modifiedCount > 0) {
+          // Update the UI or perform any necessary actions
+          alert("deleted");
+        }
+      });
+  };
 
   return (
     <div>
