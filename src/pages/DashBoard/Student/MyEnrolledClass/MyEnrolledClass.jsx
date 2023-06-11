@@ -22,7 +22,7 @@ const MyEnrolledClass = () => {
               itemIds.includes(item._id)
             );
             console.log("Enrolled Classes:", enrolledClassesData);
-            // setEnrolledClasses(enrolledClassesData);
+            setEnrolledClasses(enrolledClassesData);
           });
       });
   }, [user?.email]);

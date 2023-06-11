@@ -4,10 +4,10 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 const AllClassCard = ({ allclass }) => {
   const { _id, languageName, instructorName, price } = allclass;
-  console.log(allclass);
+  // console.log(allclass);
   const { user } = useContext(AuthContext);
   const handleSelectClass = (_id) => {
-    console.log("selected item", _id);
+    // console.log("selected item", _id);
     // const selected = { user: user.email, selecteditem: item };
     // update as an array
     const enrollment = { enrollment: user?.email };
@@ -20,7 +20,7 @@ const AllClassCard = ({ allclass }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.modifiedCount) {
           alert("modified");
         }

@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log("location", location);
+  const from = location?.state?.from.pathname || "/";
   const showPassword = true;
   const handleLogin = (event) => {
     event.preventDefault();
@@ -16,6 +20,7 @@ const Login = () => {
       .then((result) => {
         const loggedinUser = result.user;
         console.log(loggedinUser);
+        navigate(from, { replace: true });
       })
       .then((error) => console.log(error.message));
   };
@@ -76,7 +81,7 @@ const Login = () => {
                 </span> */}
               </div>
             </div>
-            <div className=" mt-6">
+            <div className="mt-6">
               <input
                 // disabled={disable}
                 disabled={false}

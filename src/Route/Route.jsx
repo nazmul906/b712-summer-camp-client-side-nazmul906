@@ -14,6 +14,7 @@ import Payment from "../pages/DashBoard/Student/Payment/Payment";
 import MySelectClass from "../pages/DashBoard/Student/MySelectClass/MySelectClass";
 import MyEnrolledClass from "../pages/DashBoard/Student/MyEnrolledClass/MyEnrolledClass";
 import PaymentHistory from "../pages/DashBoard/Student/PaymentHistory/PaymentHistory";
+import PrivateRoute from "./PrivateRoute";
 const Route = createBrowserRouter([
   {
     path: "/",
@@ -25,7 +26,11 @@ const Route = createBrowserRouter([
       },
       {
         path: "class",
-        element: <AllClass></AllClass>,
+        element: (
+          <PrivateRoute>
+            <AllClass></AllClass>
+          </PrivateRoute>
+        ),
       },
       {
         path: "login",
