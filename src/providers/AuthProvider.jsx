@@ -8,14 +8,23 @@ import {
   updateProfile,
   onAuthStateChanged,
   signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 import axios from "axios";
 const auth = getAuth(app);
 export const AuthContext = createContext(null);
+const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
+
+  const googleSignIn = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
+
   const register = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -23,9 +32,14 @@ const AuthProvider = ({ children }) => {
   const updateUserData = (profile) => {
     // setLoading(true);
     // console.log("updateuser is called");
-    setLoading(true);
+    // setLoading(true);
     return updateProfile(auth.currentUser, profile);
   };
+  // const updateUserProfile = (name, photo) => {
+  //     return updateProfile(auth.currentUser, {
+  //         displayName: name, photoURL: photo
+  //     });
+  // }
   const signIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
@@ -60,7 +74,15 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     signOut(auth);
   };
-  const authInfo = { user, loading, signIn, register, updateUserData, logout };
+  const authInfo = {
+    googleSignIn,
+    user,
+    loading,
+    signIn,
+    register,
+    updateUserData,
+    logout,
+  };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 // todo: login and register page should be react form
 // and password validate
 const Register = () => {
   const { register, updateUserData } = useContext(AuthContext);
+  const [error, setError] = useState("");
   const showPassword = true;
   const handleRegister = (event) => {
     event.preventDefault();
@@ -11,18 +12,42 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const confirmpassword = form.confirmpassword.value;
     // const confrimpassword = form.confrimpassword.value;
     const photoUrl = form.photo.value;
-    console.log(name, email, password);
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+    if (!passwordRegex.test(password)) {
+      setError(
+        "Password must be at least 6 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character."
+      );
+      return;
+    }
+
+    if (password !== confirmpassword) {
+      setError("Password and confirm password do not match.");
+      return;
+    }
+    // const registeredUser = {
+    //   name: name,
+    //   email: email,
+    //   photoUrl: photoUrl,
+    // };
+    console.log(name, email, password, photoUrl);
     register(email, password)
       .then((result) => {
-        const registerdUser = result.user;
+        const signedUser = result.user;
+        // console.log(signedUser);
         updateUserData({ displayName: name, photoURL: photoUrl })
           .then((result) => {
             // const updatedUser = result.user;
             // console.log("updated", updatedUser);
 
-            const registeredUser = { name: name, email: email };
+            const registeredUser = {
+              name: name,
+              email: email,
+              photoUrl: photoUrl,
+            };
             fetch("http://localhost:5000/users", {
               method: "POST",
               headers: { "content-type": "application/json" },
@@ -37,7 +62,7 @@ const Register = () => {
               });
           })
           .catch((error) => console.log(error));
-        console.log("registered", registerdUser);
+        console.log("Sign up", signedUser);
       })
       .then((error) => console.log(error.message));
   };
@@ -112,8 +137,9 @@ const Register = () => {
                 className="btn btn-primary"
               ></input>
             </div>
+
+            <p className="text-red-800">{error}</p>
           </form>
-          <div>{/* Add your social login buttons here */}</div>
         </div>
       </div>
     </div>

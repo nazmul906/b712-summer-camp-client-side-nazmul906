@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleSignIn } = useContext(AuthContext);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -23,6 +23,28 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .then((error) => console.log(error.message));
+  };
+
+  const handleSignInGoogle = () => {
+    googleSignIn().then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      const registered = {
+        name: loggedUser.displayName,
+        email: loggedUser.email,
+      };
+      fetch("http://localhost:5000/users", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(registered),
+      })
+        .then((res) => res.json())
+        .then(() => {
+          navigate(from, { replace: true });
+        });
+    });
   };
 
   return (
@@ -91,7 +113,22 @@ const Login = () => {
               ></input>
             </div>
           </form>
-          <div>{/* Add your social login buttons here */}</div>
+          <div className="mt-3">
+            <button
+              onClick={handleSignInGoogle}
+              className="btn btn-primary bg-blue-600 hover:bg-blue-700"
+            >
+              Google
+            </button>
+          </div>
+          <div className="flex justify-center items-center">
+            <p className="me-2">
+              <sm>yet not registered?..please sign up</sm>
+            </p>{" "}
+            <Link to="/register">
+              <button className="btn btn-primary">Register</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

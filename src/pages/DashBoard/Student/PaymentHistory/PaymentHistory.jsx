@@ -11,7 +11,7 @@ const PaymentHistory = () => {
   }, []);
   return (
     <div>
-      <h5>Myclasses:{paymenthistory.length}</h5>
+      {/* <h5>Myclasses:{paymenthistory.length}</h5> */}
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -20,6 +20,7 @@ const PaymentHistory = () => {
               <th>#</th>
               <th>email</th>
               <th>transactionId</th>
+              <th>date</th>
               <th>price</th>
             </tr>
           </thead>
@@ -30,7 +31,8 @@ const PaymentHistory = () => {
                 <th>{index + 1}</th>
                 <td>{item.email}</td>
                 <td>{item.transactionId}</td>
-                <td>{item.price}</td>
+                <td>{item.date}</td>
+                <td>${item.price}</td>
               </tr>
             </tbody>
           ))}

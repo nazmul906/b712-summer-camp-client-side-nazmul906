@@ -35,18 +35,19 @@ const MySelectClass = () => {
 
   return (
     <div>
-      <h5>Myclasses:{myclass.length}</h5>
+      {/* <h5>Myclasses:{myclass.length}</h5> */}
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
             <tr>
               <th>#</th>
-              <th>classname</th>
-              <th>instructror</th>
-              <th>instructorEmail</th>
-              <th>available seat</th>
-              <th>price</th>
+              <th>Classname</th>
+              <th>Instructror</th>
+              <th>InstructorEmail</th>
+              <th>Available seat</th>
+              <th>Price</th>
+              <th>Action</th>
             </tr>
           </thead>
           {myclass.map((item, index) => (
