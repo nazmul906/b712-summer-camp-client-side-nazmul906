@@ -15,6 +15,9 @@ import MySelectClass from "../pages/DashBoard/Student/MySelectClass/MySelectClas
 import MyEnrolledClass from "../pages/DashBoard/Student/MyEnrolledClass/MyEnrolledClass";
 import PaymentHistory from "../pages/DashBoard/Student/PaymentHistory/PaymentHistory";
 import PrivateRoute from "./PrivateRoute";
+import InstructorInfo from "../pages/InstructorInfo/InstructorInfo";
+import InstructorRoute from "./InstructorRoute";
+import AdminRoute from "./AdminRoute";
 const Route = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +36,10 @@ const Route = createBrowserRouter([
         ),
       },
       {
+        path: "instructorinfo",
+        element: <InstructorInfo></InstructorInfo>,
+      },
+      {
         path: "login",
         element: <Login></Login>,
       },
@@ -46,23 +53,40 @@ const Route = createBrowserRouter([
     path: "dashboard",
     element: <DashLayout></DashLayout>,
     children: [
-      //dhori first e dash e dhukbe authorized admin je shob user dekhebe
+      //dhori first e dash e dhukbe manually authorized admin je shob user dekhebe
       {
         path: "alluser",
-        element: <AllUser></AllUser>,
+        element: (
+          <AdminRoute>
+            {" "}
+            <AllUser></AllUser>,
+          </AdminRoute>
+        ),
       },
       {
         path: "manageclass",
-        element: <ManageClass></ManageClass>,
+        element: (
+          <AdminRoute>
+            <ManageClass></ManageClass>,
+          </AdminRoute>
+        ),
       },
       // instructor
       {
         path: "addclass",
-        element: <AddClass></AddClass>,
+        element: (
+          <InstructorRoute>
+            <AddClass></AddClass>,
+          </InstructorRoute>
+        ),
       },
       {
         path: "myclass",
-        element: <MyClass></MyClass>,
+        element: (
+          <InstructorRoute>
+            <MyClass></MyClass>,
+          </InstructorRoute>
+        ),
       },
       // user
       {

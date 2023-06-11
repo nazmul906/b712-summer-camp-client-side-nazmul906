@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
@@ -60,17 +60,25 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link>Home</Link>
+            <NavLink to="/" className="text-slate-950">
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link>Instructors</Link>
+            <NavLink to="/instructorinfo" className="text-slate-950">
+              Instructor
+            </NavLink>
           </li>
           <li>
-            <Link to="/class">Classes</Link>
+            <NavLink to="/class" className="text-slate-950">
+              Classes
+            </NavLink>
           </li>
 
           <li>
-            <Link to="/dashboard">DashBoard</Link>
+            <NavLink to="/dashboard" className="text-slate-950">
+              DashBoard
+            </NavLink>
           </li>
         </ul>
       </div>

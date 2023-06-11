@@ -7,7 +7,7 @@ const Login = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  console.log("location", location);
+  // console.log("location", location);
   const from = location?.state?.from.pathname || "/";
   const showPassword = true;
   const handleLogin = (event) => {
