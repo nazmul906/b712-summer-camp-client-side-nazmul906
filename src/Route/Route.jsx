@@ -18,6 +18,7 @@ import PrivateRoute from "./PrivateRoute";
 import InstructorInfo from "../pages/InstructorInfo/InstructorInfo";
 import InstructorRoute from "./InstructorRoute";
 import AdminRoute from "./AdminRoute";
+import UserRoute from "./UserRoute";
 const Route = createBrowserRouter([
   {
     path: "/",
@@ -91,19 +92,35 @@ const Route = createBrowserRouter([
       // user
       {
         path: "selectclass",
-        element: <MySelectClass></MySelectClass>,
+        element: (
+          <UserRoute>
+            <MySelectClass></MySelectClass>
+          </UserRoute>
+        ),
       },
       {
         path: "payment/:id",
-        element: <Payment></Payment>,
+        element: (
+          <UserRoute>
+            <Payment></Payment>
+          </UserRoute>
+        ),
       },
       {
         path: "paymenthistory",
-        element: <PaymentHistory></PaymentHistory>,
+        element: (
+          <UserRoute>
+            <PaymentHistory></PaymentHistory>
+          </UserRoute>
+        ),
       },
       {
         path: "enrolled",
-        element: <MyEnrolledClass></MyEnrolledClass>,
+        element: (
+          <UserRoute>
+            <MyEnrolledClass></MyEnrolledClass>
+          </UserRoute>
+        ),
       },
     ],
   },

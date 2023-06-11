@@ -20,7 +20,8 @@ const MySelectClass = () => {
       });
   }, [user, myclass]);
   const handleDeleteClick = (item) => {
-    console.log("delete", item._id);
+    // actually we just have to update the myclass
+    // console.log("delete", item._id);
     axiosSecure
       .patch(`/myclass/delete/${item._id}`, { emailToDelete: user?.email })
       .then((res) => {
