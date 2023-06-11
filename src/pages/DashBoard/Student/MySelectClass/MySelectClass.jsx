@@ -17,6 +17,7 @@ const MySelectClass = () => {
         setMyclass(matched);
       });
   }, [user, myclass]);
+
   return (
     <div>
       <h5>Myclasses:{myclass.length}</h5>
@@ -54,6 +55,14 @@ const MySelectClass = () => {
                   }}
                 >
                   <button className="btn btn-primary">Pay</button>
+                </Link>
+                <Link>
+                  <button
+                    onClick={() => handleDeleteClick(item)}
+                    className="btn btn-primary"
+                  >
+                    Delete
+                  </button>
                 </Link>
               </tr>
             </tbody>
