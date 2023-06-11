@@ -1,9 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const AllClassCard = ({ allclass }) => {
-  const { _id, languageName, instructorName, price } = allclass;
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
+  const [button, setButton] = useState(false);
+  const { _id, className, instructorName, price, availableSeats } = allclass;
   // console.log(allclass);
   const { user } = useContext(AuthContext);
   const handleSelectClass = (_id) => {
@@ -35,29 +40,36 @@ const AllClassCard = ({ allclass }) => {
         />
       </figure> */}
       <div className="card-body">
-        <h2 className="card-title">{languageName}</h2>
+        <h2 className="card-title">{className}</h2>
         <p>{instructorName}</p>
+        <p>{availableSeats}</p>
+        <p>{price}</p>
+
         {/* todo:Select Button. If the user is not logged in, then tell the user to log in before selecting the course. This button will be disabled if:
 Available seats are 0
 Logged in as admin/instructor
 The class card background will be red if the available seats are 0. */}
-        <div className="card-actions justify-end">
-          <Link>
-            {" "}
-            <button
-              onClick={() => handleSelectClass(_id)}
-              className="btn btn-primary"
-            >
-              Select
-            </button>
-          </Link>
-        </div>
-        <div className="card-actions justify-end">
-          <Link to="/dashboard/payment">
-            {" "}
-            <button className="btn btn-primary">Buy Now</button>
-          </Link>
-        </div>
+        {!isAdmin && !isInstructor && (
+          <div className="card-actions justify-end">
+            <Link>
+              {" "}
+              <button
+                onClick={() => handleSelectClass(_id)}
+                className="btn btn-primary"
+              >
+                Select
+              </button>
+            </Link>
+          </div>
+        )}
+        {!isAdmin && !isInstructor && (
+          <div className="card-actions justify-end">
+            <Link to="/dashboard/payment">
+              {" "}
+              <button className="btn btn-primary">Buy Now</button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
