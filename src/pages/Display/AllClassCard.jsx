@@ -28,9 +28,9 @@ const AllClassCard = ({ allclass }) => {
     )
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
+        console.log("selected", data);
         if (data.modifiedCount > 0) {
-          alert("modified");
+          alert("Class is Selected");
         }
       });
   };
