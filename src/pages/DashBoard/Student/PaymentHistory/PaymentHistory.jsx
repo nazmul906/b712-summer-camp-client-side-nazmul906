@@ -5,7 +5,9 @@ const PaymentHistory = () => {
   const { user } = useContext(AuthContext);
   const [paymenthistory, setpaymenthistory] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/payment?email=${user?.email}`)
+    fetch(
+      `https://b7a12-summer-camp-server-side-omega.vercel.app/payment?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setpaymenthistory(data));
   }, []);

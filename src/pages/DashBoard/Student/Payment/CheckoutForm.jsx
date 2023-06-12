@@ -80,9 +80,12 @@ const CheckoutForm = ({ price, itemId }) => {
       };
       axiosSecure.post("/payments", payment).then((res) => {
         console.log(res.data);
-        if (res.data.result.insertedId) {
-          alert(" Payment is done");
+        if (res.data.result && res.data.result.insertedId) {
+          alert("Payment is done");
         }
+        // if (res.data.result.insertedId) {
+        //   alert(" Payment is done");
+        // }
       });
     }
   };
@@ -113,11 +116,9 @@ const CheckoutForm = ({ price, itemId }) => {
           Pay
         </button>
       </form>
-      {cardError && <p className="text-red-600 ml-8">{cardError}</p>}
+      {cardError && <p className="text-red-400 ml-8">{cardError}</p>}
       {transactionId && (
-        <p className="text-green-500">
-          Transaction complete with transactionId: {transactionId}
-        </p>
+        <p className="text-orange-800">Transaction completed</p>
       )}
     </>
   );

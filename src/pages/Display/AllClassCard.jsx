@@ -18,15 +18,18 @@ const AllClassCard = ({ allclass }) => {
     const enrollment = { enrollment: user?.email };
     // task
     // update the item.. with new enrollment field and array of email;
-    fetch(`http://localhost:5000/myclass/select/${_id}`, {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(enrollment),
-    })
+    fetch(
+      `https://b7a12-summer-camp-server-side-omega.vercel.app/myclass/select/${_id}`,
+      {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(enrollment),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
-        if (data.modifiedCount) {
+        if (data.modifiedCount > 0) {
           alert("modified");
         }
       });

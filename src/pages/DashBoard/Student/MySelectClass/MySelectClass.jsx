@@ -10,7 +10,7 @@ const MySelectClass = () => {
   const [myclass, setMyclass] = useState([]);
   //   const [search, setSearch] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/myclass")
+    fetch("https://b7a12-summer-camp-server-side-omega.vercel.app/myclass")
       .then((res) => res.json())
       .then((data) => {
         const matched = data.filter(

@@ -7,14 +7,16 @@ const MyEnrolledClass = () => {
   const [enrolledClasses, setEnrolledClasses] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/payment?email=${user?.email}`)
+    fetch(
+      `https://b7a12-summer-camp-server-side-omega.vercel.app/payment?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log("Payment data:", data);
         setEnrolled(data);
         const itemIds = data.map((payment) => payment.cartItems);
         // console.log("Item IDs:", itemIds);
-        fetch("http://localhost:5000/myclass")
+        fetch("https://b7a12-summer-camp-server-side-omega.vercel.app/myclass")
           .then((res) => res.json())
           .then((myClassData) => {
             console.log("MyClass data:", myClassData);

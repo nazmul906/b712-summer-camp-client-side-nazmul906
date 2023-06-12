@@ -48,11 +48,14 @@ const Register = () => {
               email: email,
               photoUrl: photoUrl,
             };
-            fetch("http://localhost:5000/users", {
-              method: "POST",
-              headers: { "content-type": "application/json" },
-              body: JSON.stringify(registeredUser),
-            })
+            fetch(
+              "https://b7a12-summer-camp-server-side-omega.vercel.app/users",
+              {
+                method: "POST",
+                headers: { "content-type": "application/json" },
+                body: JSON.stringify(registeredUser),
+              }
+            )
               .then((res) => res.json())
               .then((data) => {
                 console.log(data);

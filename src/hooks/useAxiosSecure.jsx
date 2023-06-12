@@ -3,8 +3,11 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../providers/AuthProvider";
+// const axiosSecure = axios.create({
+//   baseURL: "https://b7a12-summer-camp-server-side-omega.vercel.app/",
+// });
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://b7a12-summer-camp-server-side-omega.vercel.app/",
 });
 const useAxiosSecure = () => {
   //   const { logout } = useAuth();

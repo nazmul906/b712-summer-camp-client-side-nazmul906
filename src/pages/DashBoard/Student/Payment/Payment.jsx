@@ -14,12 +14,13 @@ const Payment = () => {
 
   const { id } = useParams();
   console.log("payment", id);
+
   // const { item } = location.state || {};
   // console.log("item price", item);
 
   // now again fetch myclass retrive money of this id and send to checkout
   useEffect(() => {
-    fetch("http://localhost:5000/myclass")
+    fetch("https://b7a12-summer-camp-server-side-omega.vercel.app/myclass")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);

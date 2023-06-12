@@ -11,7 +11,7 @@ const ManageClass = () => {
   const [feedback, setFeedback] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/myclass")
+    fetch("https://b7a12-summer-camp-server-side-omega.vercel.app/myclass")
       .then((res) => res.json())
       .then((data) => setAllclass(data));
   }, []);
@@ -19,9 +19,12 @@ const ManageClass = () => {
   const handleApproveReq = (item) => {
     console.log(item);
 
-    fetch(`http://localhost:5000/myclass/approve/${item._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://b7a12-summer-camp-server-side-omega.vercel.app/myclass/approve/${item._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -35,7 +38,7 @@ const ManageClass = () => {
     axiosSecure.patch(`/myclass/deny/${item._id}`).then((res) => {
       const data = res.data;
       if (data.modifiedCount) {
-        alert("deny request");
+        // alert("deny request");
         setFeedbackModalOpen(true);
         setFeedbackItemId(item._id);
       }

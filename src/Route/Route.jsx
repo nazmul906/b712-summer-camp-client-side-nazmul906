@@ -19,6 +19,7 @@ import InstructorInfo from "../pages/InstructorInfo/InstructorInfo";
 import InstructorRoute from "./InstructorRoute";
 import AdminRoute from "./AdminRoute";
 import UserRoute from "./UserRoute";
+import Error from "../pages/Error/Error";
 const Route = createBrowserRouter([
   {
     path: "/",
@@ -123,6 +124,10 @@ const Route = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: "/*",
+    element: <Error></Error>,
   },
 ]);
 

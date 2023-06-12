@@ -10,7 +10,7 @@ const AllUser = () => {
   // todo: fetch user using react query
   // as it is secure for admin verify it with jwt using axiossecurew
   // useEffect(() => {
-  //   fetch("http://localhost:5000/users", {})
+  //   fetch("https://b7a12-summer-camp-server-side-omega.vercel.app/users", {})
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setUser(data);
@@ -29,9 +29,12 @@ const AllUser = () => {
 
   const handleAdmin = (item) => {
     // console.log(item);
-    fetch(`http://localhost:5000/users/admin/${item._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://b7a12-summer-camp-server-side-omega.vercel.app/users/admin/${item._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -43,11 +46,14 @@ const AllUser = () => {
   };
 
   const handleInstructor = (item) => {
-    fetch(`http://localhost:5000/users/instructor/${item._id}`, {
-      // using patch because we just partially updating the db
-      method: "PATCH",
-    })
-      .then()
+    fetch(
+      `https://b7a12-summer-camp-server-side-omega.vercel.app/users/instructor/${item._id}`,
+      {
+        // using patch because we just partially updating the db
+        method: "PATCH",
+      }
+    )
+      .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data.modifiedCount) {
@@ -57,8 +63,8 @@ const AllUser = () => {
   };
   return (
     <div>
-      <h5>This is all user</h5>
-      <h5>Length {user.length}</h5>
+      {/* <h5>This is all user</h5> */}
+      <h5>Total USer: {user.length}</h5>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

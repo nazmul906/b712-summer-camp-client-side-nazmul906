@@ -120,7 +120,7 @@ const AddClass = () => {
       status: status,
     };
 
-    fetch("http://localhost:5000/addclass", {
+    fetch("https://b7a12-summer-camp-server-side-omega.vercel.app/addclass", {
       method: "POST",
       headers: {
         "content-type": "application/json",

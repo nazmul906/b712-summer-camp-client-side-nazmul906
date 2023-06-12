@@ -52,7 +52,9 @@ const AuthProvider = ({ children }) => {
       // this req will asign the logged in user a jwt token
       if (currentUser) {
         axios
-          .post("http://localhost:5000/jwt", { email: currentUser.email })
+          .post("https://b7a12-summer-camp-server-side-omega.vercel.app/jwt", {
+            email: currentUser.email,
+          })
           .then((data) => {
             // console.log("axios", data.data.jwtToken);
             const accessToken = data.data.jwtToken;

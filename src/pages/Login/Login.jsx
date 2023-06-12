@@ -33,7 +33,7 @@ const Login = () => {
         name: loggedUser.displayName,
         email: loggedUser.email,
       };
-      fetch("http://localhost:5000/users", {
+      fetch("https://b7a12-summer-camp-server-side-omega.vercel.app/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",
