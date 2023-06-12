@@ -13,7 +13,7 @@ const InstructorInfo = () => {
   }, []);
   return (
     <div>
-      <h6>Instructor</h6>
+      {/* <h6>Instructor</h6> */}
       <div className="grid grid-cols-2 gap-4">
         {instructor.map((item) => (
           <InstructorInfoCard

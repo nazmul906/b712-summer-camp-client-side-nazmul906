@@ -182,7 +182,7 @@ const DashLayout = () => {
     <div className="flex h-screen overflow-hidden dash-layout">
       {/* Sidebar */}
       <div className="flex-shrink-0 w-64 bg-base-100 ">
-        <div className="flex items-center justify-center h-14 ">
+        <div className="flex items-center justify-center h-14 bg-base-200 ">
           <span className="text-lg font-bold ">Dashboard</span>
         </div>
         <nav className="py-4">

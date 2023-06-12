@@ -6,14 +6,14 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap">
           <div className="w-full md:w-1/2 lg:w-1/4 mb-4 md:mb-0">
-            <h3 className="text-lg font-bold mb-2">Company Name</h3>
-            <p className="text-sm">123 Street, City</p>
-            <p className="text-sm">Country</p>
+            <h3 className="text-lg font-bold mb-2">Foreign Language School</h3>
+            <p className="text-sm">Grred Road, Dhaka</p>
+            <p className="text-sm">Bangladesh</p>
           </div>
           <div className="w-full md:w-1/2 lg:w-1/4 mb-4 md:mb-0">
             <h3 className="text-lg font-bold mb-2">Contact Us</h3>
             <p className="text-sm">Email: info@example.com</p>
-            <p className="text-sm">Phone: +1234567890</p>
+            <p className="text-sm">Phone: +12345670</p>
           </div>
           <div className="w-full md:w-1/2 lg:w-1/4 mb-4 md:mb-0">
             <h3 className="text-lg font-bold mb-2">Follow Us</h3>
